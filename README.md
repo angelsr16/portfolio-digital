@@ -1,59 +1,20 @@
-# DeveloperPortfolio
+# Ángel de Jesús Sánchez Romero | @angelsr16
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.3.
+### ***Ingeniero en Sistemas Computacionales | Front-End Developer***
 
-## Development server
 
-To start a local development server, run:
+Typescript | Angular | Node.js | Tailwind | PrimeNG | Unity | C# |  
+Android | Kotlin | Java | Firebase 🔥  
 
-```bash
-ng serve
-```
+💻 Passionate Coder! 
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
 
-## Code scaffolding
+### ***Sobre mí***
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+Cuento con más de 5 años de experiencia en el desarrollo e implementación de una amplia variedad de sistemas y sitios web, así como en la creación de aplicaciones móviles, siempre con un enfoque en la calidad, la innovación y la eficiencia. A lo largo de mi carrera, he tenido la oportunidad de trabajar en proyectos diversos que me han permitido desarrollar un conjunto de habilidades técnicas y una visión integral del proceso de desarrollo.
 
-```bash
-ng generate component component-name
-```
+Además, en mi tiempo libre, me dedico a una de mis grandes pasiones: el desarrollo de videojuegos. Este interés me ha permitido explorar áreas como la programación usando motores gráficos, el diseño de experiencias interactivas y la creación de mundos virtuales, lo que enriquece mi enfoque creativo y técnico en todos los proyectos en los que participo.
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+### ***Contacto***
 
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+📩 <angelsanchezromero09@gmail.com>
