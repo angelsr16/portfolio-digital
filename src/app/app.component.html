@@ -1,5 +1,5 @@
 <div class="flex justify-center">
-  <div class="2xl:w-[65%] xl:w-[70%] lg:w-[85%] w-[80%] my-20">
+  <div class="2xl:w-[70%] xl:w-[80%] lg:w-[85%] w-[90%] my-20">
     <h2 data-aos="fade-right" data-aos-duration="1500" class="text-white text-4xl font-black mb-1">Ángel de Jesús
       Sánchez Romero</h2>
     <p data-aos="fade-right" data-aos-duration="1500" class="text-white text-2xl font-semibold mb-4">Ingeniero en
@@ -34,7 +34,7 @@
         </span>
       </a>
 
-      <a data-aos="fade-up" data-aos-duration="1500" data-aos-delay="450" href="" target="_blank">
+      <a data-aos="fade-up" data-aos-duration="1500" data-aos-delay="450" href="assets/cv.pdf" download="My_CV.pdf">
         <span
           class="flex items-center justify-center text-white gap-3 px-4 py-2 border-2 rounded-2xl border-blue-900 hover:bg-blue-900 transition duration-250 ease-in">
           CV
@@ -46,7 +46,7 @@
     <section data-aos="zoom-in" data-aos-duration="1500" class="text-white">
       <h3 class="text-3xl font-bold mb-2">Sobre mí</h3>
 
-      <p class="text-lg">
+      <p class="xl:text-2xl md:text-xl font-thin">
         Desarrollador de software con pasión por resolver problemas complejos y crear soluciones eficientes. Destaco por
         mi lógica computacional, proactividad y enfoque en la eficiencia. Disfruto los retos, aprender constantemente y
         explorar nuevas tecnologías. Como hobby, también me apasiona el desarrollo de videojuegos.
@@ -112,14 +112,14 @@
       </h3>
 
       @for (project of projects; track $index) {
-      <div data-aos="fade-right" data-aos-duration="800" class="lg:flex gap-10 mb-15">
-        <div class="lg:w-1/2 w-full lg:mb-0 mb-10 flex flex-col justify-between">
+      <div data-aos="fade-right" data-aos-duration="800" class="lg:flex 2x-gap-20 gap-10 mb-15">
+        <div class="xl:w-2/3 lg:w-1/2 w-full lg:mb-0 mb-10 flex flex-col justify-between">
           <div class="flex flex-col">
             <h4 class="text-3xl font-semibold mb-2">
               {{ project.title }}
             </h4>
 
-            <p class="xl:text-xl text-base font-thin">
+            <p class="xl:text-2xl md:text-xl text-lg font-thin">
               {{ project.description }}
             </p>
           </div>
@@ -148,16 +148,26 @@
 
         </div>
 
-        <div class="lg:w-1/2 w-full relative">
-          <img class="w-full 2xl:h-80 lg:h-86 h-120 rounded-xl bg-blue-900 bg-cover bg-top-left"
-            [src]="project.images[project.currentImageIndex]" alt="" draggable="false">
-          <div class="w-full flex items-center justify-between mt-2">
-            <i (click)="handlePreviousImage(project)" class="pi pi-angle-left cursor-pointer"
-              style="font-size: 2rem;"></i>
-            <span>
+        <div class="xl:w-1/3 lg:w-1/2 w-full relative">
+          <div class="w-full h-60 sm:h-72 md:h-120 lg:h-86 2xl:h-80 bg-blue-500 rounded-xl 2xl:p-5 p-2 relative">
+
+            <div class="w-full h-full bg-gray-600 -rotate-3 2xl:scale-115 lg:scale-105 rounded-xl"></div>
+            <img class="absolute top-0 left-0 w-full h-full rounded-xl object-fit object-center"
+              [src]="project.images[project.currentImageIndex]" alt="" draggable="false">
+          </div>
+          <div class="w-full flex items-center justify-between mt-5">
+            <!-- <i (click)="handlePreviousImage(project)" class="pi pi-angle-left cursor-pointer"
+              style="font-size: 2rem;"></i> -->
+            <!-- <span>
               {{ project.currentImageIndex + 1 }} of {{ project.images.length }}
-            </span>
-            <i (click)="handleNextImage(project)" class="pi pi-angle-right cursor-pointer" style="font-size: 2rem;"></i>
+            </span> -->
+            <div class="flex overflow-auto scrollbar-hide gap-2">
+              @for (image of project.images; track $index) {
+              <img draggable="false" (click)="project.currentImageIndex = $index" [src]="image"
+                class="size-16 rounded-xl cursor-pointer" alt="">
+              }
+            </div>
+            <!-- <i (click)="handleNextImage(project)" class="pi pi-angle-right cursor-pointer" style="font-size: 2rem;"></i> -->
           </div>
         </div>
       </div>
@@ -168,7 +178,7 @@
     <section data-aos="fade-right" data-aos-duration="1500" class="text-white mb-20">
       <h3 class="text-3xl font-bold lg:mb-2 mb-10">Experiencia Laboral</h3>
 
-      <div class="flex md:flex-row flex-col flex-col-reverse md:gap-10 gap-4">
+      <div class="flex md:flex-row flex-col flex-col-reverse md:gap-10 gap-4 xl:text-xl text-lg">
         <div class="flex-1">
           <div class="mb-3">
             <h4 class="text-xl">
@@ -232,11 +242,11 @@
           <div class="flex gap-10">
             <i class="pi pi-graduation-cap" style="font-size: 3rem;"> </i>
             <div>
-              <h4 class="md:text-2xl text-lg font-bold">
+              <h4 class="xl:text-2xl text-lg font-bold">
                 Instituto Tecnológico Superior de Xalapa
               </h4>
 
-              <p>Ingeniería en Sistemas Computacionales</p>
+              <p class="xl:text-xl text-lg">Ingeniería en Sistemas Computacionales</p>
 
             </div>
           </div>
