@@ -1,5 +1,5 @@
 <div class="flex justify-center">
-  <div class="xl:w-[60%] lg:w-[70%] md:w-[85%] w-[80%] my-20">
+  <div class="2xl:w-[65%] xl:w-[70%] lg:w-[85%] w-[80%] my-20">
     <h2 data-aos="fade-right" data-aos-duration="1500" class="text-white text-4xl font-black mb-1">Ángel de Jesús
       Sánchez Romero</h2>
     <p data-aos="fade-right" data-aos-duration="1500" class="text-white text-2xl font-semibold mb-4">Ingeniero en
@@ -55,8 +55,118 @@
 
     <hr class="my-10 text-cyan-900">
 
+    <section class="text-white mb-20">
+      <h3 class="text-3xl font-bold mb-5">
+        Tecnologías.
+      </h3>
+
+      <div class="w-full flex flex-wrap gap-3 select-none">
+        <div data-aos="fade-up" data-aos-duration="800"
+          class="px-4 py-2 border-2 border-blue-900 flex gap-3 items-center rounded-xl hover:bg-blue-900 transition-all duration-500">
+          <i class="devicon-angular-plain md:text-2xl text-lg"></i>
+          <span class="md:text-xl font-semibold">Angular</span>
+        </div>
+
+        <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="150"
+          class="px-4 py-2 border-2 border-blue-900 flex gap-3 items-center rounded-xl hover:bg-blue-900 transition duration-450">
+          <i class="devicon-firebase-plain md:text-2xl text-lg"></i>
+          <span class="md:text-xl font-semibold">Firebase</span>
+        </div>
+
+        <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="300"
+          class="px-4 py-2 border-2 border-blue-900 flex gap-3 items-center rounded-xl hover:bg-blue-900 transition duration-450">
+          <i class="devicon-mongodb-plain md:text-2xl text-lg"></i>
+          <span class="md:text-xl font-semibold">MongoDB</span>
+        </div>
+
+        <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="450"
+          class="px-4 py-2 border-2 border-blue-900 flex gap-3 items-center rounded-xl hover:bg-blue-900 transition duration-450">
+          <i class="devicon-tailwindcss-plain md:text-2xl text-lg"></i>
+          <span class="md:text-xl font-semibold">Tailwind</span>
+        </div>
+
+        <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="600"
+          class="px-4 py-2 border-2 border-blue-900 flex gap-3 items-center rounded-xl hover:bg-blue-900 transition duration-450">
+          <i class="devicon-python-plain md:text-2xl text-lg"></i>
+          <span class="md:text-xl font-semibold">Python</span>
+        </div>
+
+        <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="750"
+          class="px-4 py-2 border-2 border-blue-900 flex gap-3 items-center rounded-xl hover:bg-blue-900 transition duration-450">
+          <i class="devicon-fastapi-plain md:text-2xl text-lg"></i>
+          <span class="md:text-xl font-semibold">FastAPI</span>
+        </div>
+
+        <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="900"
+          class="px-4 py-2 border-2 border-blue-900 flex gap-3 items-center rounded-xl hover:bg-blue-900 transition duration-450">
+          <i class="devicon-unity-plain md:text-2xl text-lg"></i>
+          <span class="md:text-xl font-semibold">Unity</span>
+        </div>
+      </div>
+
+    </section>
+
+    <section class="text-white mb-20">
+      <h3 class="text-3xl font-bold mb-5">
+        Proyectos.
+      </h3>
+
+      @for (project of projects; track $index) {
+      <div data-aos="fade-right" data-aos-duration="800" class="lg:flex gap-10 mb-15">
+        <div class="lg:w-1/2 w-full lg:mb-0 mb-10 flex flex-col justify-between">
+          <div class="flex flex-col">
+            <h4 class="text-3xl font-semibold mb-2">
+              {{ project.title }}
+            </h4>
+
+            <p class="xl:text-xl text-base font-thin">
+              {{ project.description }}
+            </p>
+          </div>
+
+          <div class="flex flex-col">
+
+            <div class="flex flex-wrap gap-2 mt-3 select-none">
+              @for (techItem of project.techList; track $index) {
+              <span class="px-3 py-1 flex items-center font-black gap-2 rounded-2xl bg-sky-800">
+                <i [class]="techItem.icon" class="text-xl"></i>
+                {{ techItem.title }}
+              </span>
+              }
+            </div>
+
+            @if (project.githubLink !== '') {
+            <br>
+            <a [href]="project.githubLink" target="_blank" class="flex items-center gap-2 text-lg">
+              <span class="font-thin underline">
+                Repositorio GitHub
+              </span>
+              <i class="devicon-github-original"></i>
+            </a>
+            }
+          </div>
+
+        </div>
+
+        <div class="lg:w-1/2 w-full relative">
+          <img class="w-full 2xl:h-80 lg:h-86 h-120 rounded-xl bg-blue-900 bg-cover bg-top-left"
+            [src]="project.images[project.currentImageIndex]" alt="" draggable="false">
+          <div class="w-full flex items-center justify-between mt-2">
+            <i (click)="handlePreviousImage(project)" class="pi pi-angle-left cursor-pointer"
+              style="font-size: 2rem;"></i>
+            <span>
+              {{ project.currentImageIndex + 1 }} of {{ project.images.length }}
+            </span>
+            <i (click)="handleNextImage(project)" class="pi pi-angle-right cursor-pointer" style="font-size: 2rem;"></i>
+          </div>
+        </div>
+      </div>
+      }
+
+    </section>
+
     <section data-aos="fade-right" data-aos-duration="1500" class="text-white mb-20">
-      <h3 class="text-3xl font-bold lg:mb-2 mb-10">Experiencia</h3>
+      <h3 class="text-3xl font-bold lg:mb-2 mb-10">Experiencia Laboral</h3>
 
       <div class="flex md:flex-row flex-col flex-col-reverse md:gap-10 gap-4">
         <div class="flex-1">
@@ -110,115 +220,7 @@
       </div>
     </section>
 
-    <section class="text-white mb-20">
-      <h3 class="text-3xl font-bold mb-5">
-        Tecnologías.
-      </h3>
 
-      <div class="w-full flex flex-wrap gap-3 select-none">
-        <div data-aos="fade-up" data-aos-duration="800"
-          class="px-4 py-2 border-2 border-blue-900 flex gap-3 items-center rounded-xl hover:bg-blue-900 transition duration-450">
-          <i class="devicon-angular-plain text-3xl"></i>
-          <span class="text-2xl font-semibold">Angular</span>
-        </div>
-
-        <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="150"
-          class="px-4 py-2 border-2 border-blue-900 flex gap-3 items-center rounded-xl hover:bg-blue-900 transition duration-450">
-          <i class="devicon-firebase-plain text-2xl"></i>
-          <span class="text-xl font-semibold">Firebase</span>
-        </div>
-
-        <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="300"
-          class="px-4 py-2 border-2 border-blue-900 flex gap-3 items-center rounded-xl hover:bg-blue-900 transition duration-450">
-          <i class="devicon-mongodb-plain text-2xl"></i>
-          <span class="text-xl font-semibold">MongoDB</span>
-        </div>
-
-        <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="450"
-          class="px-4 py-2 border-2 border-blue-900 flex gap-3 items-center rounded-xl hover:bg-blue-900 transition duration-450">
-          <i class="devicon-tailwindcss-plain text-2xl"></i>
-          <span class="text-xl font-semibold">Tailwind</span>
-        </div>
-
-        <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="600"
-          class="px-4 py-2 border-2 border-blue-900 flex gap-3 items-center rounded-xl hover:bg-blue-900 transition duration-450">
-          <i class="devicon-python-plain text-2xl"></i>
-          <span class="text-xl font-semibold">Python</span>
-        </div>
-
-        <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="750"
-          class="px-4 py-2 border-2 border-blue-900 flex gap-3 items-center rounded-xl hover:bg-blue-900 transition duration-450">
-          <i class="devicon-fastapi-plain text-2xl"></i>
-          <span class="text-xl font-semibold">FastAPI</span>
-        </div>
-
-        <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="900"
-          class="px-4 py-2 border-2 border-blue-900 flex gap-3 items-center rounded-xl hover:bg-blue-900 transition duration-450">
-          <i class="devicon-unity-plain text-2xl"></i>
-          <span class="text-xl font-semibold">Unity</span>
-        </div>
-      </div>
-
-    </section>
-
-    <section class="text-white mb-20">
-      <h3 class="text-3xl font-bold mb-5">
-        Proyectos.
-      </h3>
-
-      @for (project of projects; track $index) {
-      <div data-aos="fade-right" data-aos-duration="800" class="lg:flex gap-10 mb-15">
-        <div class="flex-2 lg:mb-0 mb-10">
-          <h4 class="text-2xl font-semibold mb-2">
-            {{ project.title }}
-          </h4>
-
-          <p class="font-thin">
-            {{ project.description }}
-          </p>
-
-          <p class="font-thin mt-2">
-            {{ project.subdesc }}
-          </p>
-
-          <div class="flex flex-wrap gap-2 mt-3 select-none">
-            @for (techItem of project.techList; track $index) {
-            <span class="px-3 py-1 flex items-center font-black gap-2 rounded-2xl bg-sky-800">
-              <i [class]="techItem.icon" class="text-xl"></i>
-              {{ techItem.title }}
-            </span>
-            }
-          </div>
-
-          @if (project.githubLink !== '') {
-          <br>
-          <a [href]="project.githubLink" target="_blank" class="flex items-center gap-2 text-lg">
-            <span class="font-thin underline">
-              Repositorio GitHub
-            </span>
-            <i class="devicon-github-original"></i>
-          </a>
-          }
-
-
-        </div>
-
-        <div class="flex-1 relative">
-          <img class="w-full lg:h-64 h-80 rounded-xl bg-blue-900 bg-fit object-fit"
-            [src]="project.images[project.currentImageIndex]" alt="">
-          <div class="w-full flex items-center justify-between mt-2">
-            <i (click)="handlePreviousImage(project)" class="pi pi-angle-left cursor-pointer"
-              style="font-size: 2rem;"></i>
-            <span>
-              {{ project.currentImageIndex + 1 }} of {{ project.images.length }}
-            </span>
-            <i (click)="handleNextImage(project)" class="pi pi-angle-right cursor-pointer" style="font-size: 2rem;"></i>
-          </div>
-        </div>
-      </div>
-      }
-
-    </section>
 
     <section class="text-white">
       <h3 class="text-3xl font-bold mb-10">
