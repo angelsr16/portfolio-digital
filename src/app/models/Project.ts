@@ -5,6 +5,9 @@ export interface Project {
   currentImageIndex: number;
   techList: TechItem[];
   githubLink: string;
+  categories: number[];
+  websiteLink?: string;
+  websiteTitle?: string;
 }
 
 export interface TechItem {

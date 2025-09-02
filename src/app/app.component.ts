@@ -1,14 +1,25 @@
 import { Component, OnInit } from '@angular/core';
 import { Project } from './models/Project';
 import * as AOS from 'aos';
+import { CommonModule } from '@angular/common';
+
+const TODOS: number = 0;
+const DESTACADOS: number = 1;
+const SISTEMAS: number = 2;
+const SITIO_WEB: number = 3;
+const E_COMMERCE: number = 4;
 
 @Component({
   selector: 'app-root',
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
 export class AppComponent implements OnInit {
+  filterData: any = {
+    category: DESTACADOS,
+  };
+
   projects: Project[] = [
     {
       title: 'Sistema de Obras Públicas',
@@ -29,6 +40,50 @@ export class AppComponent implements OnInit {
         { icon: 'devicon-firebase-plain', title: 'Firebase' },
       ],
       githubLink: '',
+      categories: [DESTACADOS, SISTEMAS],
+    },
+    {
+      title: 'Sitio web informativo para Soinsa',
+      description:
+        'Desarrollé el sitio web informativo de Soinsa, empresa especializada en tratamiento de agua y mantenimiento industrial. Implementé una interfaz moderna y responsiva con Angular, y utilicé Firebase para hosting y gestión de contenido. El sitio comunica eficazmente los servicios y permite una navegación clara y profesional.',
+      // subdesc:
+      //   'La aplicación está desarrollada con Python y FastAPI en el backend, usando JWT para una autenticación segura. El frontend en Angular ofrece una experiencia fluida y dinámica centrada en la publicación e interacción con frases. MongoDB se utiliza como base de datos NoSQL, ideal para manejar estructuras flexibles como citas y datos de usuario.',
+      images: [
+        'images/projects/soinsa/01.png',
+        'images/projects/soinsa/02.png',
+        'images/projects/soinsa/03.png',
+      ],
+      currentImageIndex: 0,
+      techList: [
+        { icon: 'devicon-angular-plain', title: 'Angular' },
+        { icon: 'devicon-firebase-plain', title: 'Firebase' },
+        { icon: 'devicon-tailwind-plain', title: 'TailwindCSS' },
+      ],
+      githubLink: '',
+      categories: [DESTACADOS, SITIO_WEB],
+      websiteLink: 'https://www.soinsa.com.mx/',
+      websiteTitle: 'www.soinsa.com.mx',
+    },
+    {
+      title: 'Sitio web informativo para Construpacc',
+      description:
+        'Desarrollé el sitio web informativo de Construpacc, empresa constructora dedicada también a la renta de andamios, maquinaria ligera y venta de materiales para la construcción. El sitio presenta los servicios de forma clara, con una interfaz responsiva creada en Angular y desplegada con Firebase, optimizada para atraer clientes y facilitar el contacto.',
+      images: [
+        'images/projects/construpacc/01.png',
+        'images/projects/construpacc/02.png',
+        'images/projects/construpacc/03.png',
+        'images/projects/construpacc/04.png',
+      ],
+      currentImageIndex: 0,
+      techList: [
+        { icon: 'devicon-angular-plain', title: 'Angular' },
+        { icon: 'devicon-firebase-plain', title: 'Firebase' },
+        { icon: 'devicon-tailwind-plain', title: 'TailwindCSS' },
+      ],
+      githubLink: '',
+      categories: [DESTACADOS, SITIO_WEB],
+      websiteLink: 'https://construpacc.com/',
+      websiteTitle: 'www.construpacc.com',
     },
     {
       title: 'Sistema de reparto de pizzas (En desarrollo)',
@@ -57,6 +112,7 @@ export class AppComponent implements OnInit {
         },
       ],
       githubLink: 'https://github.com/angelsr16/pizza-delivery-app',
+      categories: [DESTACADOS, E_COMMERCE],
     },
     {
       title: 'Finance Tracker (En progreso)',
@@ -76,6 +132,7 @@ export class AppComponent implements OnInit {
         { icon: 'devicon-mysql-plain', title: 'MySQL' },
       ],
       githubLink: 'https://github.com/angelsr16/credit-card-tracker',
+      categories: [DESTACADOS, SISTEMAS],
     },
     {
       title: 'Aplicación Web para Registro de Citas de Películas/Series',
@@ -97,26 +154,59 @@ export class AppComponent implements OnInit {
         { icon: 'devicon-tailwind-plain', title: 'TailwindCSS' },
       ],
       githubLink: 'https://github.com/angelsr16/simple-quote-app',
+      categories: [SISTEMAS],
+    },
+    {
+      title: 'Sitio web informativo para Soinsa',
+      description:
+        'Desarrollé el sitio web informativo de Soinsa, empresa especializada en tratamiento de agua y mantenimiento industrial. Implementé una interfaz moderna y responsiva con Angular, y utilicé Firebase para hosting y gestión de contenido. El sitio comunica eficazmente los servicios y permite una navegación clara y profesional.',
+      // subdesc:
+      //   'La aplicación está desarrollada con Python y FastAPI en el backend, usando JWT para una autenticación segura. El frontend en Angular ofrece una experiencia fluida y dinámica centrada en la publicación e interacción con frases. MongoDB se utiliza como base de datos NoSQL, ideal para manejar estructuras flexibles como citas y datos de usuario.',
+      images: [
+        'images/projects/soinsa/01.png',
+        'images/projects/soinsa/02.png',
+        'images/projects/soinsa/03.png',
+      ],
+      currentImageIndex: 0,
+      techList: [
+        { icon: 'devicon-angular-plain', title: 'Angular' },
+        { icon: 'devicon-firebase-plain', title: 'Firebase' },
+        { icon: 'devicon-tailwind-plain', title: 'TailwindCSS' },
+      ],
+      githubLink: '',
+      categories: [SITIO_WEB],
     },
   ];
 
+  projectsListToShow: Project[] = [];
+
   ngOnInit(): void {
     AOS.init();
+
+    this.filterProjects(DESTACADOS);
   }
 
-  handlePreviousImage(project: Project) {
-    if (project.currentImageIndex - 1 === -1) {
-      project.currentImageIndex = project.images.length - 1;
-    } else {
-      project.currentImageIndex -= 1;
-    }
+  filterProjects(category: number) {
+    this.filterData.category = category;
+    this.projectsListToShow = this.projects.filter((project) => {
+      if (this.filterData.category === TODOS) return true;
+      return project.categories.includes(this.filterData.category);
+    });
   }
 
-  handleNextImage(project: Project) {
-    if (project.currentImageIndex + 1 === project.images.length) {
-      project.currentImageIndex = 0;
-    } else {
-      project.currentImageIndex += 1;
-    }
-  }
+  // handlePreviousImage(project: Project) {
+  //   if (project.currentImageIndex - 1 === -1) {
+  //     project.currentImageIndex = project.images.length - 1;
+  //   } else {
+  //     project.currentImageIndex -= 1;
+  //   }
+  // }
+
+  // handleNextImage(project: Project) {
+  //   if (project.currentImageIndex + 1 === project.images.length) {
+  //     project.currentImageIndex = 0;
+  //   } else {
+  //     project.currentImageIndex += 1;
+  //   }
+  // }
 }
