@@ -1,5 +1,5 @@
 <div class="flex justify-center">
-  <div class="2xl:w-[50%] w-[85%] my-10">
+  <div class="2xl:w-[50%] xl:w-[65%] w-[90%] my-10">
     <h2 class="text-slate-300 md:text-3xl text-xl md:text-left text-center font-black md:mb-1 mb-3">Ángel de Jesús
       Sánchez
       Romero</h2>
@@ -134,6 +134,7 @@
 
     </section>
 
+    <!-- PROYECTOS -->
     <section class="text-slate-300 mb-20">
       <h3 class="md:text-2xl text-xl font-bold mb-5">
         Proyectos Personales.
@@ -161,53 +162,66 @@
         </div>
       </div> -->
 
-      <div class="grid lg:grid-cols-2 grid-cols-1 gap-6">
+      <div class="grid grid-cols-1 gap-6">
         @for (project of projectsListToShow; track $index) {
-        <div class="flex flex-col justify-between border border-2 border-slate-200 rounded-xl p-5">
+        <div class="flex flex-col justify-between border border-slate-500 rounded-xl p-5 gap-5">
           <div class="flex flex-col">
             <h4 class="md:text-xl text-lg font-bold mb-2">
               {{ project.title }}
             </h4>
 
-            <p class="md:text-lg font-thin">
+            <p class="md:text-lg font-thin ">
               {{ project.description }}
+
             </p>
+            @if(project.paragraphs && !project.displayParagraph){
+            <span class="underline text-white cursor-pointer md:text-lg self-start inline-block"
+              (click)="project.displayParagraph = !project.displayParagraph">
+              Ver más...</span>
+            }
+
+            @if (project.paragraphs && project.displayParagraph) {
+            @for (paragraph of project.paragraphs; track $index) {
+            <p class="my-1 md:text-lg font-thin">
+              {{paragraph}}
+            </p>
+            @if ($index === project.paragraphs.length - 1) {
+            <span class="md:text-lg underline text-white cursor-pointer self-start inline-block"
+              (click)="project.displayParagraph = !project.displayParagraph">
+              Ver menos
+            </span>
+            }
+            }
+
+            }
           </div>
 
-          <div class="flex flex-col">
+          <div class="flex justify-between items-end">
 
             <div class="flex flex-wrap gap-2 mt-3 select-none">
               @for (techItem of project.techList; track $index) {
               <img class="cursor-pointer size-8" [src]="'https://skillicons.dev/icons?i=' + techItem.icon" alt="Tech" />
-              <!-- <span class="px-3 py-1 flex items-center font-black gap-2 rounded-2xl bg-slate-700">
-                <i [class]="techItem.icon" class="md:text-xl text-lg"></i>
-                {{ techItem.title }}
-              </span> -->
+
               }
             </div>
 
-            <div>
-              <br>
-              @if (project.githubLink !== '') {
-              <div class="flex justify-between">
-                <a [href]="project.githubLink" target="_blank" class="flex items-center gap-2 text-lg">
-                  <span class="font-thin underline">
-                    Repositorio GitHub
-                  </span>
-                  <i class="devicon-github-original text-2xl"></i>
-                </a>
-                <li (click)="currentProjectGallery = project" class="pi pi-images cursor-pointer text-4xl"></li>
-              </div>
-              }@else {
-              <div class="flex justify-end">
-                <li (click)="currentProjectGallery = project" class="pi pi-images cursor-pointer text-4xl"></li>
-              </div>
+            <div class="flex items-center md:gap-4 gap-2">
+              @if (project.githubLink) {
+              <a [href]="project.githubLink" target="_blank">
+                <li class="pi pi-github cursor-pointer md:text-3xl text-xl"></li>
+              </a>
               }
+
+              <li (click)="currentProjectGallery = project" class="pi pi-images cursor-pointer md:text-4xl text-xl">
+              </li>
+
             </div>
           </div>
         </div>
         }
       </div>
+
+
 
       <!-- @for (project of projectsListToShow; track $index) {
       <div class="lg:flex 2x-gap-20 gap-10 mb-15">

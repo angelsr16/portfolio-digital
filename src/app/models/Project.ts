@@ -1,6 +1,8 @@
 export interface Project {
   title: string;
   description: string;
+  paragraphs?: string[];
+  displayParagraph?: boolean;
   images: string[];
   currentImageIndex: number;
   techList: TechItem[];

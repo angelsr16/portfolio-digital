@@ -25,6 +25,73 @@ export class AppComponent implements OnInit {
 
   projectsListToShow: Project[] = [
     {
+      title: 'Lotería Mexicana',
+      description:
+        'Proyecto full stack desarrollado con Next.js en el frontend y Node.js + Express en el backend, utilizando WebSockets para comunicación en tiempo real. ',
+      paragraphs: [
+        'El juego permite a los usuarios crear salas y compartir un código único para que otros jugadores se unan, visualizar los nombres de los participantes y prepararse para la partida. Una vez que todos los jugadores se marcan como “listos”, el servidor inicia la partida, emitiendo las cartas de manera sincronizada.',
+        'Los jugadores van marcando sus cartas a medida que aparecen, y cuando un jugador logra Lotería, puede reclamarla mediante un botón. El servidor valida la jugada y proclama al ganador, asegurando una experiencia de juego justa y en tiempo real.',
+        'El proyecto destaca por su interactividad multijugador, sincronización precisa de eventos y recreación digital de un juego tradicional mexicano. Fue desplegado profesionalmente, con el backend en una instancia EC2 de AWS y la aplicación Next.js en Vercel, demostrando habilidades en desarrollo full stack y despliegue en la nube.',
+      ],
+      images: [],
+      currentImageIndex: 0,
+      techList: [
+        { icon: 'nextjs', title: 'NextJS' },
+        { icon: 'tailwindcss', title: 'TailwindCSS' },
+        { icon: 'nodejs', title: 'NodeJS' },
+        { icon: 'express', title: 'Express' },
+        { icon: 'aws', title: 'AWS' },
+        { icon: 'vercel', title: 'Vercel' },
+      ],
+      githubLink: 'https://github.com/angelsr16/loteria',
+      categories: [DESTACADOS],
+    },
+    {
+      title: 'Control de Suscripciones',
+      description:
+        'Proyecto full stack desarrollado con Next.js en el frontend y Node.js + MongoDB en el backend, diseñado para administrar y recordar suscripciones de manera segura y automatizada.',
+      paragraphs: [
+        'El sistema implementa autenticación mediante JWT (JSON Web Tokens) para garantizar sesiones seguras y confiables, además de un proceso de registro validado por códigos OTP gestionados con Redis (Upstash).',
+        'Los usuarios pueden registrar sus suscripciones con detalles como precio, frecuencia y método de pago, y reciben recordatorios automáticos por correo electrónico antes de la fecha de renovación. El sistema destaca por su automatización de notificaciones, seguridad en la autenticación, gestión eficiente de datos y experiencia de usuario intuitiva.',
+        'El proyecto fue desplegado profesionalmente, con el frontend alojado en Vercel y el backend en una instancia EC2 de AWS. Además, integra varios servicios de AWS para garantizar escalabilidad y disponibilidad, incluyendo AWS SQS para la gestión de colas de envío de correos, y AWS EventBridge junto con una Lambda en Python para ejecutar diariamente los procesos de recordatorio.',
+      ],
+      images: [],
+      currentImageIndex: 0,
+      techList: [
+        {
+          icon: 'nextjs',
+          title: 'NextJS',
+        },
+        { icon: 'tailwindcss', title: 'Tailwind' },
+        {
+          icon: 'nodejs',
+          title: 'NodeJS',
+        },
+        {
+          icon: 'express',
+          title: 'Express',
+        },
+        {
+          icon: 'mongodb',
+          title: 'MongoDB',
+        },
+        {
+          icon: 'redis',
+          title: 'Redis',
+        },
+        {
+          icon: 'aws',
+          title: 'AWS',
+        },
+        {
+          icon: 'vercel',
+          title: 'Vercel',
+        },
+      ],
+      githubLink: 'https://github.com/angelsr16/subscription-tracker',
+      categories: [DESTACADOS],
+    },
+    {
       title: 'Conecta 4 Online',
       description:
         'Desarrollo full stack con FastAPI, Angular y MongoDB que permite jugar de forma local u online mediante la creación de partidas privadas con código de acceso. Implementa sistema de puntuación ELO y un leaderboard dinámico con el top 10 de jugadores, ofreciendo una experiencia competitiva y en tiempo real.',
@@ -64,116 +131,6 @@ export class AppComponent implements OnInit {
       githubLink: '',
       categories: [DESTACADOS, SISTEMAS],
     },
-    {
-      title: 'Construpacc',
-      description:
-        'Desarrollé el sitio web informativo de Construpacc, empresa constructora dedicada también a la renta de andamios, maquinaria ligera y venta de materiales para la construcción. El sitio presenta los servicios de forma clara, con una interfaz responsiva creada en Angular y desplegada con Firebase, optimizada para atraer clientes y facilitar el contacto.',
-      images: [
-        'images/projects/construpacc/01.png',
-        'images/projects/construpacc/02.png',
-        'images/projects/construpacc/03.png',
-        'images/projects/construpacc/04.png',
-      ],
-      currentImageIndex: 0,
-      techList: [
-        { icon: 'angular', title: 'Angular' },
-        { icon: 'firebase', title: 'Firebase' },
-        { icon: 'tailwind', title: 'TailwindCSS' },
-      ],
-      githubLink: '',
-      categories: [DESTACADOS, SITIO_WEB],
-      websiteLink: 'https://construpacc.com/',
-      websiteTitle: 'www.construpacc.com',
-    },
-    {
-      title: 'SOINSA',
-      description:
-        'Desarrollé el sitio web informativo de Soinsa, empresa especializada en tratamiento de agua y mantenimiento industrial. Implementé una interfaz moderna y responsiva con Angular, y utilicé Firebase para hosting y gestión de contenido. El sitio comunica eficazmente los servicios y permite una navegación clara y profesional.',
-      images: [
-        'images/projects/soinsa/01.png',
-        'images/projects/soinsa/02.png',
-        'images/projects/soinsa/03.png',
-      ],
-      currentImageIndex: 0,
-      techList: [
-        { icon: 'angular', title: 'Angular' },
-        { icon: 'firebase', title: 'Firebase' },
-        { icon: 'tailwind', title: 'TailwindCSS' },
-      ],
-      githubLink: '',
-      categories: [TODOS, SITIO_WEB],
-    },
-    // {
-    //   title: 'Sistema de reparto de pizzas (En desarrollo)',
-    //   description:
-    //     'Una plataforma moderna de reparto de pizzas desarrollada con Angular, TailwindCSS, Firebase y componentes independientes. Esta aplicación incluirá autenticación de usuarios, acceso basado en roles (administrador, personal, repartidor), gestión de productos y procesamiento de pedidos.',
-    //   images: [
-    //     'images/projects/pizza/pizza_01.png',
-    //     'images/projects/pizza/pizza_05.png',
-    //     'images/projects/pizza/pizza_02.png',
-    //     'images/projects/pizza/pizza_03.png',
-    //     'images/projects/pizza/pizza_04.png',
-    //   ],
-    //   currentImageIndex: 0,
-    //   techList: [
-    //     {
-    //       icon: 'angular',
-    //       title: 'Angular',
-    //     },
-    //     {
-    //       icon: 'firebase',
-    //       title: 'Firebase',
-    //     },
-    //     {
-    //       icon: 'tailwind',
-    //       title: 'TailwindCSS',
-    //     },
-    //   ],
-    //   githubLink: 'https://github.com/angelsr16/pizza-delivery-app',
-    //   categories: [DESTACADOS, E_COMMERCE],
-    // },
-    // {
-    //   title: 'Finance Tracker (En progreso)',
-    //   description:
-    //     'Aplicación full-stack para el seguimiento de finanzas personales, diseñada para gestionar el uso de tarjetas de crédito, pagos y compras a plazos. Este proyecto en desarrollo tiene como objetivo proporcionar una visión clara de los gastos mensuales y fomentar una administración financiera responsable, ayudando a evitar cargos por intereses.',
-    //   images: [
-    //     'images/projects/finance-tracker/finance_01.png',
-    //     'images/projects/finance-tracker/finance_02.png',
-    //     'images/projects/finance-tracker/finance_03.png',
-    //   ],
-    //   currentImageIndex: 0,
-    //   techList: [
-    //     { icon: 'angular', title: 'Angular' },
-    //     { icon: 'tailwind', title: 'TailwindCSS' },
-    //     { icon: 'python', title: 'Python' },
-    //     { icon: 'fastapi', title: 'FastAPI' },
-    //     { icon: 'mysql', title: 'MySQL' },
-    //   ],
-    //   githubLink: 'https://github.com/angelsr16/credit-card-tracker',
-    //   categories: [DESTACADOS, SISTEMAS],
-    // },
-    // {
-    //   title: 'Aplicación Web para Registro de Citas de Películas/Series',
-    //   description:
-    //     'Aplicación web full - stack desarrollada con FastAPI y Angular que permite a los usuarios registrarse, iniciar sesión y compartir frases memorables de películas y series de televisión.',
-    //   // subdesc:
-    //   //   'La aplicación está desarrollada con Python y FastAPI en el backend, usando JWT para una autenticación segura. El frontend en Angular ofrece una experiencia fluida y dinámica centrada en la publicación e interacción con frases. MongoDB se utiliza como base de datos NoSQL, ideal para manejar estructuras flexibles como citas y datos de usuario.',
-    //   images: [
-    //     'images/projects/quotes/quote_app_01.png',
-    //     'images/projects/quotes/quote_app_02.png',
-    //     'images/projects/quotes/quote_app_03.png',
-    //   ],
-    //   currentImageIndex: 0,
-    //   techList: [
-    //     { icon: 'python', title: 'Python' },
-    //     { icon: 'fastapi', title: 'FastAPI' },
-    //     { icon: 'mongodb', title: 'MongoDB' },
-    //     { icon: 'angular', title: 'Angular' },
-    //     { icon: 'tailwind', title: 'TailwindCSS' },
-    //   ],
-    //   githubLink: 'https://github.com/angelsr16/simple-quote-app',
-    //   categories: [SISTEMAS],
-    // },
   ];
 
   ngOnInit(): void {
