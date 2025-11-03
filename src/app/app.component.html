@@ -1,5 +1,5 @@
 <div class="flex justify-center">
-  <div class="2xl:w-[50%] xl:w-[65%] w-[90%] my-10">
+  <div class="2xl:w-[70%] xl:w-[75%] w-[90%] my-10">
     <h2 class="text-slate-300 md:text-3xl text-xl md:text-left text-center font-black md:mb-1 mb-3">Ángel de Jesús
       Sánchez
       Romero</h2>
@@ -164,132 +164,45 @@
 
       <div class="grid grid-cols-1 gap-6">
         @for (project of projectsListToShow; track $index) {
-        <div class="flex flex-col justify-between border border-slate-500 rounded-xl p-5 gap-5">
-          <div class="flex flex-col">
-            <h4 class="md:text-xl text-lg font-bold mb-2">
-              {{ project.title }}
-            </h4>
+        <div class="md:px-0 px-4 py-2">
+          <h3 class="md:text-xl text-lg font-bold mb-4">{{project.title}}</h3>
 
-            <p class="md:text-lg font-thin ">
-              {{ project.description }}
+          <div class="flex md:flex-row flex-col flex-col-reverse gap-6">
+            <div class="lg:w-1/2 md:w-3/7 w-full">
+              <p class="font-thin lg:text-lg">{{project.description}}</p>
 
-            </p>
-            @if(project.paragraphs && !project.displayParagraph){
-            <span class="underline text-white cursor-pointer md:text-lg self-start inline-block"
-              (click)="project.displayParagraph = !project.displayParagraph">
-              Ver más...</span>
-            }
+              <a target="_blank" class="flex gap-2 items-end underline py-4" [href]="project.githubLink">
+                <img class="size-6" src="svgs/github.svg" alt="">
+                Ver más detalles...
+              </a>
+            </div>
 
-            @if (project.paragraphs && project.displayParagraph) {
-            @for (paragraph of project.paragraphs; track $index) {
-            <p class="my-1 md:text-lg font-thin">
-              {{paragraph}}
-            </p>
-            @if ($index === project.paragraphs.length - 1) {
-            <span class="md:text-lg underline text-white cursor-pointer self-start inline-block"
-              (click)="project.displayParagraph = !project.displayParagraph">
-              Ver menos
-            </span>
-            }
-            }
+            <div class="lg:w-1/2 md:w-4/7 h-72 w-full relative rounded-lg">
 
-            }
+              <img [ngSrc]="project.images[project.currentImageIndex]" priority fill alt="project showcase"
+                class="absolute inset-0 h-full w-full rounded-lg z-0" />
+
+              <!-- Overlay -->
+              <div
+                class="z-10 absolute inset-0 hover:bg-black/40 bg-transparent flex items-center justify-between p-4 w-full">
+                <img (click)="prevImage(project)" class="size-8 cursor-pointer" src="svgs/left-arrow.svg" alt="">
+                <img (click)="nextImage(project)" class="size-8 cursor-pointer" src="svgs/right-arrow.svg" alt="">
+              </div>
+            </div>
           </div>
 
-          <div class="flex justify-between items-end">
-
-            <div class="flex flex-wrap gap-2 mt-3 select-none">
+          <div class="w-full flex justify-between items-end mt-5">
+            <div class="flex flex-wrap gap-2 select-none">
               @for (techItem of project.techList; track $index) {
               <img class="cursor-pointer size-8" [src]="'https://skillicons.dev/icons?i=' + techItem.icon" alt="Tech" />
-
               }
-            </div>
-
-            <div class="flex items-center md:gap-4 gap-2">
-              @if (project.githubLink) {
-              <a [href]="project.githubLink" target="_blank">
-                <li class="pi pi-github cursor-pointer md:text-3xl text-xl"></li>
-              </a>
-              }
-
-              <li (click)="currentProjectGallery = project" class="pi pi-images cursor-pointer md:text-4xl text-xl">
-              </li>
-
             </div>
           </div>
         </div>
+
+        <hr class="mb-5 text-slate-400">
         }
       </div>
-
-
-
-      <!-- @for (project of projectsListToShow; track $index) {
-      <div class="lg:flex 2x-gap-20 gap-10 mb-15">
-        <div class="lg:w-1/2 w-full lg:mb-0 mb-10 flex flex-col justify-between">
-          <div class="flex flex-col">
-            <h4 class="text-2xl font-semibold mb-2">
-              {{ project.title }}
-            </h4>
-
-            <p class="text-lg font-thin">
-              {{ project.description }}
-            </p>
-          </div>
-
-          <div class="flex flex-col">
-
-            <div class="flex flex-wrap gap-2 mt-3 select-none">
-              @for (techItem of project.techList; track $index) {
-              <span class="px-3 py-1 flex items-center font-black gap-2 rounded-2xl bg-gray-800">
-                <i [class]="techItem.icon" class="text-xl"></i>
-                {{ techItem.title }}
-              </span>
-              }
-            </div>
-
-            @if (project.githubLink !== '') {
-            <br>
-            <a [href]="project.githubLink" target="_blank" class="flex items-center gap-2 text-lg">
-              <span class="font-thin underline">
-                Repositorio GitHub
-              </span>
-              <i class="devicon-github-original"></i>
-            </a>
-            }
-
-            @if (project.websiteLink !== '') {
-            <br>
-            <a [href]="project.websiteLink" target="_blank" class="flex items-center gap-2 text-lg">
-              <span class="font-thin underline">
-                {{ project.websiteTitle }}
-              </span>
-            </a>
-            }
-
-
-          </div>
-
-        </div>
-
-        <div class="lg:w-1/2 w-full relative">
-          <div class="w-full h-60 sm:h-72 md:h-120 lg:h-72 2xl:h-86 bg-gray-500 rounded-xl 2xl:p-5 p-2 relative">
-
-            <div class="w-full h-full bg-gray-600 -rotate-3 2xl:scale-115 lg:scale-105 rounded-xl"></div>
-            <img class="absolute top-0 left-0 w-full h-full rounded-xl object-fit object-center"
-              [src]="project.images[project.currentImageIndex]" alt="" draggable="false">
-          </div>
-          <div class="w-full flex items-center justify-between mt-5">
-            <div class="flex overflow-auto scrollbar-hide gap-2">
-              @for (image of project.images; track $index) {
-              <img draggable="false" (click)="project.currentImageIndex = $index" [src]="image"
-                class="size-16 rounded-xl cursor-pointer" alt="">
-              }
-            </div>
-          </div>
-        </div>
-      </div>
-      } -->
-
     </section>
 
     <section class="text-slate-300 mb-20">
@@ -377,42 +290,3 @@
 
   </div>
 </div>
-
-@if (currentProjectGallery) {
-<div class="fixed inset-0 z-50 bg-black/65 flex items-center justify-center px-3">
-  <div class="relative max-w-7xl w-full flex flex-col items-center">
-    <img [src]="currentProjectGallery.images[currentImageIndex]" alt="Project image" class="
-          w-full h-auto object-contain
-          max-h-60 sm:max-h-80 md:max-h-[500px] lg:max-h-[600px]
-          rounded-xl shadow-lg
-        " />
-
-    <button (click)="hideProjectGallery()" class="p-2 sm:p-3 md:p-4 rounded-xl absolute top-2 right-2 bg-black/50 hover:bg-black/70 text-white
-          text-lg sm:text-2xl md:text-3xl cursor-pointer">
-      x
-    </button>
-
-    <button (click)="prevImage()" class="
-          absolute left-2 sm:left-5 top-1/2 -translate-y-1/2
-          bg-black/50 hover:bg-black/70 text-white
-          rounded-full shadow-md
-          p-2 sm:p-3 md:p-4
-          text-lg sm:text-2xl md:text-3xl
-          cursor-pointer
-        ">
-      ‹
-    </button>
-
-    <button (click)="nextImage()" class="
-          absolute right-2 sm:right-5 top-1/2 -translate-y-1/2
-          bg-black/50 hover:bg-black/70 text-white
-          rounded-full shadow-md
-          p-2 sm:p-3 md:p-4
-          text-lg sm:text-2xl md:text-3xl
-          cursor-pointer
-        ">
-      ›
-    </button>
-  </div>
-</div>
-}
