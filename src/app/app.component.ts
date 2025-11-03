@@ -35,7 +35,7 @@ export class AppComponent implements OnInit {
         // 'El proyecto destaca por su interactividad multijugador, sincronización precisa de eventos y recreación digital de un juego tradicional mexicano. Fue desplegado profesionalmente, con el backend en una instancia EC2 de AWS y la aplicación Next.js en Vercel, demostrando habilidades en desarrollo full stack y despliegue en la nube.',
       ],
       images: [
-        'images/projects/obras/sistema_obras_01.png',
+        'images/projects/loteria/01.png',
         'images/projects/obras/sistema_obras_02.png',
         'images/projects/obras/sistema_obras_03.png',
         'images/projects/obras/sistema_obras_04.png',
