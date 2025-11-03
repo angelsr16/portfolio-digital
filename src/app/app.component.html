@@ -135,9 +135,9 @@
             <div class="lg:w-1/2 md:w-3/7 w-full">
               <p class="font-thin lg:text-lg mb-4">{{project.description}}</p>
 
-              <a target="_blank" class="inline-flex gap-2 items-end underline text-lg" [href]="project.githubLink">
-                <img class="size-6" src="svgs/github.svg" alt="">
-                Más detalles...
+              <a target="_blank" class="inline-flex gap-2 items-center underline text-lg font-bold" [href]="project.githubLink">
+                <img class="size-5" src="svgs/github.svg" alt="">
+                Más detalles sobre este proyecto...
               </a>
             </div>
 
@@ -148,8 +148,13 @@
 
               <!-- Overlay -->
               <div
-                class="z-10 absolute inset-0 hover:bg-black/40 bg-transparent flex items-center justify-between md:px-4 w-full rounded-lg">
+                class="group z-10 absolute inset-0 hover:bg-black/60 bg-transparent flex items-center justify-between md:px-4 w-full rounded-lg">
                 <img (click)="prevImage(project)" class="size-8 cursor-pointer" src="svgs/left-arrow.svg" alt="">
+                <span
+                  class="flex items-center gap-1 underline cursor-pointer opacity-0 group-hover:opacity-100 text-white text-lg font-bold">
+                  Pantalla Completa
+                  <img src="svgs/maximize-icon.svg" class="size-4" alt="">
+                </span>
                 <img (click)="nextImage(project)" class="size-8 cursor-pointer" src="svgs/right-arrow.svg" alt="">
               </div>
             </div>
@@ -219,8 +224,6 @@
         </ul>
       </div>
     </section>
-
-
 
     <section class="text-slate-300 mb-15">
       <h3 class="text-2xl font-bold mb-10">

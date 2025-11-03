@@ -35,11 +35,9 @@ export class AppComponent implements OnInit {
         // 'El proyecto destaca por su interactividad multijugador, sincronización precisa de eventos y recreación digital de un juego tradicional mexicano. Fue desplegado profesionalmente, con el backend en una instancia EC2 de AWS y la aplicación Next.js en Vercel, demostrando habilidades en desarrollo full stack y despliegue en la nube.',
       ],
       images: [
+        'images/projects/loteria/03.png',
         'images/projects/loteria/01.png',
-        'images/projects/obras/sistema_obras_02.png',
-        'images/projects/obras/sistema_obras_03.png',
-        'images/projects/obras/sistema_obras_04.png',
-        'images/projects/obras/sistema_obras_05.png',
+        'images/projects/loteria/02.png',
       ],
       currentImageIndex: 0,
       techList: [
@@ -63,11 +61,10 @@ export class AppComponent implements OnInit {
         'El proyecto fue desplegado profesionalmente, con el frontend alojado en Vercel y el backend en una instancia EC2 de AWS. Además, integra varios servicios de AWS para garantizar escalabilidad y disponibilidad, incluyendo AWS SQS para la gestión de colas de envío de correos, y AWS EventBridge junto con una Lambda en Python para ejecutar diariamente los procesos de recordatorio.',
       ],
       images: [
-        'images/projects/obras/sistema_obras_01.png',
-        'images/projects/obras/sistema_obras_02.png',
-        'images/projects/obras/sistema_obras_03.png',
-        'images/projects/obras/sistema_obras_04.png',
-        'images/projects/obras/sistema_obras_05.png',
+        'images/projects/substracker/01.png',
+        'images/projects/substracker/02.png',
+        'images/projects/substracker/03.png',
+        'images/projects/substracker/04.png',
       ],
       currentImageIndex: 0,
       techList: [
@@ -123,6 +120,7 @@ export class AppComponent implements OnInit {
           title: 'TailwindCSS',
         },
         { icon: 'mongodb', title: 'MongoDB' },
+        { icon: 'python', title: 'Python' },
         { icon: 'fastapi', title: 'FastAPI' },
         { icon: 'docker', title: 'Docker' },
       ],
