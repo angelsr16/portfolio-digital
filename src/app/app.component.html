@@ -11,12 +11,12 @@
         <img src="svgs/down-arrow.svg" class="size-3 group-hover:translate-y-1/5 transition" alt="">
       </span>
       <div class="flex justify-center gap-3 mb-10">
-        <!-- <a href="https://www.linkedin.com/in/angelsr16/" target="_blank">
+        <a href="https://www.linkedin.com/in/angelsr16/" target="_blank">
           <span
             class="flex items-center justify-center px-4 py-2 border-2 rounded-xl border-blue-500 hover:bg-blue-500 transition duration-150 ease-in">
             <i class="pi pi-linkedin text-slate-300 md:text-2xl text-lg"></i>
           </span>
-        </a> -->
+        </a>
 
         <a href="https://github.com/angelsr16" target="_blank">
           <span
@@ -25,7 +25,7 @@
           </span>
         </a>
 
-        <a class="group" href="assets/cv.pdf" download="My_CV.pdf">
+        <a class="group" href="assets/cv.pdf" download="CV - Angel Sanchez.pdf">
           <span
             class="md:text-lg flex items-center justify-center text-slate-300 gap-1 px-4 py-2 border-2 rounded-xl border-blue-500 hover:bg-blue-500 transition duration-150 ease-in font-bold">
             CV
@@ -46,15 +46,15 @@
 
       <div class="w-full flex flex-wrap justify-center gap-3 md:px-0">
         <div class="flex flex-col justify-center items-center gap-1">
-          <img class="cursor-pointer md:w-16 w-8" src="https://skillicons.dev/icons?i=angular" alt="Angular" />
-        </div>
-
-        <div class="flex flex-col justify-center items-center gap-1">
           <img class="cursor-pointer md:w-16 w-8" src="https://skillicons.dev/icons?i=react" alt="React" />
         </div>
 
         <div class="flex flex-col justify-center items-center gap-1">
           <img class="cursor-pointer md:w-16 w-8" src="https://skillicons.dev/icons?i=nextjs" alt="Next.js" />
+        </div>
+
+        <div class="flex flex-col justify-center items-center gap-1">
+          <img class="cursor-pointer md:w-16 w-8" src="https://skillicons.dev/icons?i=angular" alt="Angular" />
         </div>
 
         <div class="flex flex-col justify-center items-center gap-1">
@@ -70,7 +70,19 @@
         </div>
 
         <div class="flex flex-col justify-center items-center gap-1">
-          <img class="cursor-pointer md:w-16 w-8" src="https://skillicons.dev/icons?i=python" alt="FastAPI" />
+          <img class="cursor-pointer md:w-16 w-8" src="https://skillicons.dev/icons?i=python" alt="Python" />
+        </div>
+
+        <div class="flex flex-col justify-center items-center gap-1">
+          <img class="cursor-pointer md:w-16 w-8" src="https://skillicons.dev/icons?i=fastapi" alt="FastAPI" />
+        </div>
+
+        <div class="flex flex-col justify-center items-center gap-1">
+          <img class="cursor-pointer md:w-16 w-8" src="https://skillicons.dev/icons?i=postgresql" alt="PostgreSQL" />
+        </div>
+
+        <div class="flex flex-col justify-center items-center gap-1">
+          <img class="cursor-pointer md:w-16 w-8" src="https://skillicons.dev/icons?i=prisma" alt="Prisma" />
         </div>
 
         <div class="flex flex-col justify-center items-center gap-1">
@@ -102,7 +114,7 @@
     <hr class="my-10 text-slate-300">
 
     <!-- PROYECTOS -->
-    <section class="text-slate-300 mb-20">
+    <section class="text-slate-300 md:mb-20 mb-10">
       <h3 class="md:text-3xl text-xl font-bold mb-5">
         Proyectos Destacados.
       </h3>
@@ -155,10 +167,10 @@
 
               <!-- Overlay -->
               <div
-                class="group z-10 absolute inset-0 hover:bg-black/60 bg-transparent flex items-center justify-between md:px-4 w-full rounded-lg">
+                class="group z-10 absolute inset-0 hover:bg-black/60 md:bg-transparent bg-black/60 flex items-center justify-between md:px-4 w-full rounded-lg">
                 <img (click)="prevImage(project)" class="size-8 cursor-pointer" src="svgs/left-arrow.svg" alt="">
                 <span (click)="currentProjectGallery = project"
-                  class="flex items-center gap-1 underline cursor-pointer opacity-0 group-hover:opacity-100 text-white text-lg font-bold">
+                  class="flex items-center gap-1 underline cursor-pointer md:opacity-0 group-hover:opacity-100 text-white text-lg font-bold">
                   Pantalla Completa
                   <img src="svgs/maximize-icon.svg" class="size-4" alt="">
                 </span>
@@ -181,54 +193,54 @@
       </div>
     </section>
 
-    <section class="text-slate-300 mb-20">
-      <h3 class="md:text-2xl text-xl font-bold lg:mb-2 mb-10">Experiencia Laboral</h3>
+    <!-- SOBRE MÍ -->
+    <section class="text-slate-300 md:mb-20 mb-10">
+      <h3 class="md:text-3xl text-xl font-bold mb-5">
+        Sobre Mí
+      </h3>
 
-      <div class="w-full">
-        <div class="mb-3">
-          <h4 class="md:text-xl text-lg font-bold mb-5">
-            Sistema Integral de Obras Públicas
-            <span class="px-3 py-1 bg-blue-500 rounded-xl mb-10 text-sm">2021 - 2024</span>
-          </h4>
-          <p class="font-thin md:text-xl text-lg">H. Ayuntamiento de San Juan Bautista Tuxtepec, Oaxaca.</p>
+      <div class="flex gap-10 lg:flex-row flex-col">
+        <div class="lg:w-1/2 w-full">
+          <p class="md:text-lg mb-3">
+            Graduado del Instituto Tecnológico Superior de Xalapa y
+            cuento con título de Ingeniero en Sistemas Computacionales
+          </p>
+          <p class="md:text-lg mb-3">
+            Desarrollador de software con más de <b>5 años de experiencia</b> especializado en aplicaciones web
+            Fullstack con
+            <b>React, Next.js, Angular, Node.js/Express, Firebase y AWS</b>.
+          </p>
+
+          <p class="md:text-lg mb-3">
+            Soy un profesional autodidacta, curioso y proactivo. Disfruto profundamente enfrentar desafíos complejos y
+            construir productos con un propósito claro. Mi capacidad de adaptación rápida a nuevas tecnologías y mi
+            enfoque
+            en la solución de problemas aseguran que el software que entrego sea modular, mantenible y de alto impacto.
+          </p>
+
+          <p class="md:text-lg">Fuerte pasión por la tecnología y el desarrollo, incluyendo la programación de
+            videojuegos como hobby personal</p>
         </div>
 
-        <div class="mb-3">
-          <p class="md:text-lg">
-            Portal centralizado para la gestión administrativa de obras públicas internas del municipio.
+        <div class="lg:w-1/2 h-full w-full p-5 rounded-lg bg-gray-800 border-2 border-white">
+          <h4 class="md:text-2xl text-xl font-bold mb-5">Experiencia Laboral</h4>
+
+          <p class="font-thin md:text-xl mb-5">H. Ayuntamiento de San Juan Bautista Tuxtepec, Oaxaca.
+            <span class="md:px-3 md:py-1 px-2 bg-blue-500 rounded-full font-thin inline-block">2021 - 2024</span>
           </p>
-          <p class="md:text-lg">
-            Sistema reconocido a nivel estatal por el OGAIPO y por el u-Gob por Innovación Digital en Gobiernos.
-          </p>
+
+          <h5 class="md:text-xl text-lg font-bold">Proyectos destacados</h5>
+
+          <ul class="mt-2">
+            <li class="list-disc ml-5 md:text-lg">
+              Plataforma Integral de Gestión de Obras Públicas (reconocida a nivel estatal por la OGAIPO)
+            </li>
+            <li class="list-disc ml-5 md:text-lg">
+              Prototipo de Sistema de Monitoreo y Geolocalizaicón de Transporte Urbano
+            </li>
+          </ul>
+
         </div>
-
-        <ul class="list-disc xl:ml-10 ml-3 md:text-lg">
-          <li class="mb-1">
-            Desarrollé módulos para el registro, control y consulta de obras, facilitando la gestión entre múltiples
-            áreas administrativas.
-          </li>
-
-          <li class="mb-1">
-            Diseñé un portal público con geolocalización, evidencias fotográficas y montos ejecutados para mayor
-            transparencia.
-          </li>
-
-          <li class="mb-1">
-            Implementé un sistema de roles con distintos niveles de acceso y control de datos.
-          </li>
-
-          <li class="mb-1">
-            Capacité a más de 30 empleados, logrando una adopción del 95% gracias a la optimización de procesos y
-            mejor acceso a la información.
-          </li>
-
-          <li class="mb-1">
-            Automaticé procesos administrativos clave (nómina, control de facturas, proveedores y contratos),
-            reduciendo el
-            tiempo de elaboración en un 70% y errores humanos en un 90%, con exportación a Excel y PDF.
-          </li>
-
-        </ul>
       </div>
     </section>
 
@@ -237,17 +249,17 @@
 
 
 @if (currentProjectGallery) {
-<div class="z-10 p-20 fixed top-0 left-0 w-full h-screen bg-black/50 flex justify-center items-center">
+<div class="z-10 md:p-20 px-5 fixed top-0 left-0 w-full h-screen bg-black/50 flex justify-center items-center">
   <div class="w-full h-full relative flex justify-center items-center">
     <img draggable="false" class="rounded-md" [src]="currentProjectGallery.images[currentImageIndex]" alt="">
 
-    <div class="z-10 absolute inset-0 flex items-center justify-between p-10 w-full rounded-lg">
+    <div class="z-10 absolute inset-0 flex items-center justify-between md:p-10 px-2 w-full rounded-lg">
       <img (click)="currentProjectGallery = undefined"
-        class="size-16 cursor-pointer bg-gray-500/30 rounded-md p-2 right-10 top-0 absolute" src="svgs/close-icon.svg"
-        alt="">
-      <img (click)="prevGalleryImage()" class="size-10 cursor-pointer bg-gray-500/30 rounded-md p-2"
+        class="md:size-16 size-8 cursor-pointer bg-gray-500/30 rounded-md p-2 md:right-10 right-2 md:top-0 top-5 absolute"
+        src="svgs/close-icon.svg" alt="">
+      <img (click)="prevGalleryImage()" class="md:size-10 size-8 cursor-pointer bg-gray-500/30 rounded-md p-2"
         src="svgs/left-arrow.svg" alt="">
-      <img (click)="nextGalleryImage()" class="size-10 cursor-pointer bg-gray-500/30 rounded-md p-2"
+      <img (click)="nextGalleryImage()" class="md:size-10 size-8 cursor-pointer bg-gray-500/30 rounded-md p-2"
         src="svgs/right-arrow.svg" alt="">
     </div>
   </div>
